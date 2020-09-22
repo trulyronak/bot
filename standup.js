@@ -11,13 +11,11 @@ Object.keys(botCommands).map(key => {
 });
 
 const TOKEN = process.env.TOKEN;
+const STANDUP_CHANNEL_ID = '757764015047835758';
 
 bot.login(TOKEN);
 
 bot.on('ready', () => {
   console.info(`Logged in as ${bot.user.tag}!`);
-});
-
-bot.on('message', msg => {
-  
+  bot.channels.get(STANDUP_CHANNEL_ID).send("<@Engineering>, what did you work on?");
 });
